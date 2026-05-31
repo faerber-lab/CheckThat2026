@@ -1,0 +1,16 @@
+# Reranker environment — modern transformers for cross-encoders & generative rerankers
+# NOTE: Do NOT use this venv for GritLM encoding (it needs transformers==4.37.2)
+
+torch>=2.1.0
+numpy>=1.24.0
+faiss-cpu>=1.7.0
+
+# Hugging Face (modern, for all reranker models)
+transformers>=4.46.0
+tokenizers>=0.20.0
+accelerate>=0.27.0
+sentence-transformers>=3.0.0
+
+# Utilities
+tqdm>=4.65.0
+pandas>=2.0.0
