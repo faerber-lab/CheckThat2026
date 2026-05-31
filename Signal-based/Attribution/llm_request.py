@@ -76,7 +76,7 @@ _global_client = None
 # MRR Evaluation constants
 # Configure base paths dynamically relative to the script location
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
-DATASET_PATH = os.path.join(BASE_PATH, "data")
+DATASET_PATH = os.path.join(BASE_PATH, "..", "sample_data")
 LANGUAGES = ['en', 'de', 'fr']
 VERSIONS = [1, 2, 3]
 STRATEGIES = ["baseline", "nli", "plus", "multi", "weight", "alpha"]
