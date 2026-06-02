@@ -23,8 +23,8 @@ cached entity extractions, and writes evaluation reports and reranked indices.
 
 ## Other Rerankers
 
-- Verification reranker: /data/horse/ws/hakh140h-style_transfer/CheckThat2026/verification_reranker
-- Attribution-based approach: /data/horse/ws/hakh140h-style_transfer/CheckThat2026/Signal-based/Attribution
+- Verification reranker: CheckThat2026/verification_reranker
+- Attribution-based approach: CheckThat2026/Signal-based/Attribution
 
 ## Evaluation
 
