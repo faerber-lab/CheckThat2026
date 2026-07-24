@@ -13,34 +13,10 @@ This repository contains the code, rerankers, and evaluation pipelines for the f
 	- GRITLM environment: install from requirements.txt
 	- Reranker environment: install from requirements_reranker.txt
 
-## Style Transfer for Scientific Claims (`Style-Transfer`)
-Applies LLM-based prompting strategies (e.g., formal rewriting, synthetic abstracts, scientific questions) to reformulate informal tweets into formal scientific representations to improve initial retrieval.
+## Style Transfer for Scientific Claims (For Best of labs paper)
+Applies LLM-based prompting strategies (e.g., formal rewriting, synthetic abstracts, scientific questions) to reformulate informal tweets into formal scientific representations to improve initial retrieval. (`Style-Transfer`)
 
-## Signal-based Re-Ranking
-
-- **Attribution-based Approach** (`Signal-based/Attribution/`): This tool decomposes claims into atomic facts, evaluates their entailment using LLMs for Natural Language Inference (NLI), and calculates a support rate to re-rank candidate sources.
-- **Entity Reranker** (`entity_reranker/`): The entity reranker extracts query entities with an LLM and reorders the top-k retrieval candidates by entity overlap (higher overlap ranks higher). The merged script supports both batch (v3) and vLLM async (v3.5) execution modes, reuses cached entity extractions, and writes evaluation reports and reranked indices.
-	- Main script: `entity_reranker/llm_entity_reranker_entity_count.py`
-	- Inputs: dataset queries/collection + reranker top-k caches
-	- Outputs: cached entity JSON, reranked indices (.npz), evaluation reports (.md)
-- **Verification Reranker** (`verification_reranker/`)
-
-## Evaluation
-
-Merged evaluation scripts now live under evaluation/ with a shared query-mode flag.
-
-- Embedding evaluation: evaluation/evaluate_embeddings.py
-	- Query modes: translated_only, paired, paired_en_once
-	- Use --original_dataset_dir for paired modes
-	- Cache tags: default v2/v2_5 for paired modes (override with --cache_tag)
-- GritLM evaluation: evaluation/evaluate_gritlm.py
-	- Query modes: translated_only, paired, paired_en_once
-	- Use --original_dataset_dir for paired modes
-	- Cache tags: default v2/v2_5 for paired modes (override with --cache_tag)
-
-Note: the folder name stays evaluation to avoid breaking imports across the codebase.
-
-## Reranker Runs
+## Similarity-based re-ranking (For Both Papers)
 
 Unified reranker runner lives in reranker_runs/run_reranker.py and supports only the
 following models:
@@ -64,3 +40,28 @@ python reranker_runs/run_reranker.py \
 	--split dev \
 	--save_scores
 ```
+## Signal-based Re-Ranking  
+
+- **Attribution-based Approach** (`Signal-based/Attribution/`) (For Best of labs paper): This tool decomposes claims into atomic facts, evaluates their entailment using LLMs for Natural Language Inference (NLI), and calculates a support rate to re-rank candidate sources.
+- **Entity Reranker** (`entity_reranker/`) (For Best of labs paper): The entity reranker extracts query entities with an LLM and reorders the top-k retrieval candidates by entity overlap (higher overlap ranks higher). The merged script supports both batch (v3) and vLLM async (v3.5) execution modes, reuses cached entity extractions, and writes evaluation reports and reranked indices.
+	- Main script: `entity_reranker/llm_entity_reranker_entity_count.py`
+	- Inputs: dataset queries/collection + reranker top-k caches
+	- Outputs: cached entity JSON, reranked indices (.npz), evaluation reports (.md)
+- **Verification Reranker** (`verification_reranker/`) (For Both Papers)
+
+## Evaluation
+
+Merged evaluation scripts now live under evaluation/ with a shared query-mode flag.
+
+- Embedding evaluation: evaluation/evaluate_embeddings.py
+	- Query modes: translated_only, paired, paired_en_once
+	- Use --original_dataset_dir for paired modes
+	- Cache tags: default v2/v2_5 for paired modes (override with --cache_tag)
+- GritLM evaluation: evaluation/evaluate_gritlm.py
+	- Query modes: translated_only, paired, paired_en_once
+	- Use --original_dataset_dir for paired modes
+	- Cache tags: default v2/v2_5 for paired modes (override with --cache_tag)
+
+Note: the folder name stays evaluation to avoid breaking imports across the codebase.
+
+
