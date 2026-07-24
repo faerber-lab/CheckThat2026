@@ -13,7 +13,7 @@ This repository contains the code, rerankers, and evaluation pipelines for the f
 	- GRITLM environment: install from requirements.txt
 	- Reranker environment: install from requirements_reranker.txt
 
-## Style Transfer for Scientific Claims (`style-transfer/`)
+## Style Transfer for Scientific Claims (`Style-Transfer`)
 Applies LLM-based prompting strategies (e.g., formal rewriting, synthetic abstracts, scientific questions) to reformulate informal tweets into formal scientific representations to improve initial retrieval.
 
 ## Signal-based Re-Ranking
