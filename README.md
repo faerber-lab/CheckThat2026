@@ -1,6 +1,9 @@
-# CheckThat2026
+# CheckThat! 2026 — Scientific Claim–Source Retrieval
 
-This code accompanies: "Scientific Claim-Source Retrieval Revisited" (CLEF 2025, Madrid, Spain).
+This repository contains the code, rerankers, and evaluation pipelines for the following papers:
+
+- **Workshop paper for CheckThat! 2026**: [Claim2Source at CheckThat! 2026: Improving Multilingual Scientific Claim–Source Retrieval with Verification-based Re-Ranking](https://arxiv.org/pdf/2607.04043)
+- **Best of labs paper**: [Scientific Claim–Source Retrieval Revisited: A Comparative Study of Style Transfer and Re-Ranking](https://arxiv.org/pdf/2607.15875)
 
 ## Setup
 
