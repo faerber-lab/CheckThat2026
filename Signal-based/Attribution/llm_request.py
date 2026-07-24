@@ -11,7 +11,7 @@ Model Specifications (Paper-Aligned):
        - Qwen3.5 27B (vLLM Backend)
        - Gemma (vLLM Backend)
        - Kimi (API Backend)
-    2. LLM-as-NLI Reranker: Restrained to Qwen3.5 27B.
+    2. LLM-as-NLI Reranker: default model-> Qwen3.5 27B. In the paper, we used "LLM-as-NLI Reranker" as the same model as "Query Extractor".
 
 Prerequisites:
     1. test data
@@ -31,7 +31,7 @@ Usage:
         # Option C: Run with Kimi (API)
         python llm_request.py --task query --version -1 --backend api
 
-    Step 2: Calculate NLI support scores and perform scoring fusion reranking (Automatically defaults to Qwen3.5 27B)
+    Step 2: Calculate NLI support scores and perform scoring fusion reranking (Automatically defaults to Qwen3.5 27B. But it can be changed by adding "--vllm-model" argument)
         python llm_request.py --task nli --version -1 --backend vllm --extractor qwen-qwen
 
     Step 3: (Optional) Standalone calculation of MRR@5 metrics across all iterations:
