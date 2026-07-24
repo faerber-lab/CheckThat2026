@@ -13,21 +13,17 @@ This repository contains the code, rerankers, and evaluation pipelines for the f
 	- GRITLM environment: install from requirements.txt
 	- Reranker environment: install from requirements_reranker.txt
 
-## Entity Reranker
+## Style Transfer for Scientific Claims (`style-transfer/`)
+Applies LLM-based prompting strategies (e.g., formal rewriting, synthetic abstracts, scientific questions) to reformulate informal tweets into formal scientific representations to improve initial retrieval.
 
-The entity reranker extracts query entities with an LLM and reorders the top-k
-retrieval candidates by entity overlap (higher overlap ranks higher). The merged
-script supports both batch (v3) and vLLM async (v3.5) execution modes, reuses
-cached entity extractions, and writes evaluation reports and reranked indices.
+## Signal-based Re-Ranking
 
-- Main script: entity_reranker/llm_entity_reranker_entity_count.py
-- Inputs: dataset queries/collection + reranker top-k caches
-- Outputs: cached entity JSON, reranked indices (.npz), evaluation reports (.md)
-
-## Other Rerankers
-
-- Verification reranker: CheckThat2026/verification_reranker
-- Attribution-based approach: CheckThat2026/Signal-based/Attribution
+- **Attribution-based Approach** (`Signal-based/Attribution/`): This tool decomposes claims into atomic facts, evaluates their entailment using LLMs for Natural Language Inference (NLI), and calculates a support rate to re-rank candidate sources.
+- **Entity Reranker** (`entity_reranker/`): The entity reranker extracts query entities with an LLM and reorders the top-k retrieval candidates by entity overlap (higher overlap ranks higher). The merged script supports both batch (v3) and vLLM async (v3.5) execution modes, reuses cached entity extractions, and writes evaluation reports and reranked indices.
+	- Main script: `entity_reranker/llm_entity_reranker_entity_count.py`
+	- Inputs: dataset queries/collection + reranker top-k caches
+	- Outputs: cached entity JSON, reranked indices (.npz), evaluation reports (.md)
+- **Verification Reranker** (`verification_reranker/`)
 
 ## Evaluation
 
