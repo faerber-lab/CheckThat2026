@@ -14,7 +14,7 @@ This repository contains the code, rerankers, and evaluation pipelines for the f
 	- Reranker environment: install from requirements_reranker.txt
 
 ## Style Transfer for Scientific Claims (For Best of labs paper)
-Applies LLM-based prompting strategies (e.g., formal rewriting, synthetic abstracts, scientific questions) to reformulate informal tweets into formal scientific representations to improve initial retrieval. (`Style-Transfer`)
+Applies LLM-based prompting strategies (e.g., formal rewriting, synthetic abstracts, scientific questions) to reformulate informal tweets into formal scientific representations to improve initial retrieval.
 
 ## Similarity-based re-ranking (For Both Papers)
 
